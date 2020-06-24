@@ -1,0 +1,23 @@
+.nav-link {
+    color: white !important;
+}
+
+.nav-link:hover {
+    color: white !important;
+    text-decoration: underline !important;
+    cursor: pointer;
+}
+
+.active {
+    color: #343a40 !important;
+}
+
+.active:hover {
+    color: #343a40 !important;
+    text-decoration: none !important;
+    cursor: default !important;
+}
+
+.element-hidden {
+    visibility: hidden;
+}

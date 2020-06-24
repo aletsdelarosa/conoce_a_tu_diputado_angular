@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "encuentra-a-tu-diputadx": {
+      "hosting": {
+        "conoce-a-tu-diputadx": [
+          "encuentra-a-tu-diputadx"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "conoce-a-tu-diputadx",
+      "public": "dist/conoce-a-tu-diputadx",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

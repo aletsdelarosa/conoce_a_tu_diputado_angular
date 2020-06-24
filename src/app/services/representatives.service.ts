@@ -1,0 +1,225 @@
+import { Injectable } from '@angular/core';
+import { Representative } from '../interfaces/representative';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class RepresentativesService {
+
+  private representatives: Map<string, Representative> = new Map([
+    ['1', {
+      fullName: 'Dip. Zeferino Juárez Mata',
+      district: 'Distrito 1',
+      email: 'zeferinojuarez@hcnl.gob.mx',
+      facebook: 'https://facebook.com/liczeferinojuarez',
+      twitter: null,
+      instagram: null,
+    }],
+    ['10', {
+      fullName: 'Dip. Juan Carlos Leal Segovia',
+      district: 'Distrito 10',
+      email: 'juancarlosleal@hcnl.gob.mx',
+      facebook: 'https://facebook.com/CarlosLealMx',
+      twitter: 'https://twitter.com/@CarlosLealMx',
+      instagram: 'https://instagram.com/CarlosLealMx',
+    }],
+    ['11', {
+      fullName: 'Dip. Carlos de la Fuente Flores',
+      district: 'Distrito 11',
+      email: 'carlosdelafuente@hcnl.gob.mx',
+      facebook: 'https://facebook.com/chaledelafuente',
+      twitter: 'https://twitter.com/@chaledelafuente',
+      instagram: 'https://instagram.com/chaledelafuente',
+    }],
+    ['12', {
+      fullName: 'Dip. Rosa Isela Castro Flores',
+      district: 'Distrito 12',
+      email: 'rosycastro@hcnl.gob.mx',
+      facebook: 'https://facebook.com/RosyCastroNL',
+      twitter: 'https://twitter.com/RosyCastroNL',
+      instagram: 'https://instagram.com/rosycastronl',
+    }],
+    ['13', {
+      fullName: 'Dip. Luis Armando Torres Hernández',
+      district: 'Distrito 13',
+      email: 'luistorres@hcnl.gob.mx',
+      facebook: 'https://facebook.com/LuisArmandoTorresGPE',
+      twitter: 'https://twitter.com/LArmandoTorres',
+      instagram: null,
+    }],
+    ['14', {
+      fullName: 'Dip. Félix Rocha Esquivel',
+      district: 'Distrito 14',
+      email: 'felixrocha@hcnl.gob.mx',
+      facebook: 'https://facebook.com/felixrochaes',
+      twitter: 'https://twitter.com/FelixRochaEs',
+      instagram: 'https://instagram.com/FelixRochaEs',
+    }],
+    ['15', {
+      fullName: 'Dip. Itzel Castillo Almanza',
+      district: 'Distrito 15',
+      email: 'itzelcastillo@hcnl.gob.mx',
+      facebook: 'https://facebook.com/ItzelCastilloNL',
+      twitter: 'https://twitter.com/@ItzelCastilloNL',
+      instagram: 'https://instagram.com/itzelcastillonl',
+    }],
+    ['16', {
+      fullName: 'Dip. Ramiro Roberto González Gutiérrez',
+      district: 'Distrito 16',
+      email: 'ramirogonzalez@hcnl.gob.mx',
+      facebook: 'https://facebook.com/RamiroGzzoficial',
+      twitter: 'https://twitter.com/ramiro_diputado',
+      instagram: 'https://instagram.com/ramirogonzalezoficial',
+    }],
+    ['17', {
+      fullName: 'Dip. Alejandra García Ortiz',
+      district: 'Distrito 17',
+      email: 'alejandragarcia@hcnl.gob.mx',
+      facebook: 'https://facebook.com/SoyAlejandraGarciaOrtiz',
+      twitter: null,
+      instagram: 'https://instagram.com/alegarcia.ortiz',
+    }],
+    ['18', {
+      fullName: 'Dip. Luis Alberto Susarrey Flores',
+      district: 'Distrito 18',
+      email: 'luissusarrey@hcnl.gob.mx',
+      facebook: 'https://facebook.com/LuisSusarrey',
+      twitter: 'https://twitter.com/luissusarrey',
+      instagram: 'https://instagram.com/luis_susarrey',
+    }],
+    ['19', {
+      fullName: 'Dip. Jesús Ángel Nava',
+      district: 'Distrito 19',
+      email: 'jesusnava@hcnl.gob.mx',
+      facebook: 'https://facebook.com/jesusnavanl',
+      twitter: 'https://twitter.com/@JesusNavaNL',
+      instagram: 'https://instagram.com/jesusnavanl',
+    }],
+    ['2', {
+      fullName: 'Dip. Asael Sepúlveda Martínez',
+      district: 'Distrito 2',
+      email: 'asaelsepulveda@hcnl.gob.mx',
+      facebook: 'https://facebook.com/asaelsepulvedam',
+      twitter: 'https://twitter.com/AsaelSepulveda',
+      instagram: 'https://instagram.com/asaelsepulveda',
+    }],
+    ['20', {
+      fullName: 'Dip. Esperanza Alicia Rodríguez López',
+      district: 'Distrito 20',
+      email: 'esperanzarodriguez@hcnl.gob.mx',
+      facebook: 'https://facebook.com/esperanzaliciar',
+      twitter: 'https://twitter.com/esperanzaliciar',
+      instagram: 'https://instagram.com/esperanzaliciar',
+    }],
+    ['21', {
+      fullName: 'Dip. Samuel Villa Velázquez',
+      district: 'Distrito 21',
+      email: 'samuelvilla@hcnl.gob.mx',
+      facebook: 'https://facebook.com/samuelvillanl',
+      twitter: 'https://twitter.com/samuelvillanl',
+      instagram: 'https://instagram.com/samuelvillanl',
+    }],
+    ['22', {
+      fullName: 'Dip. Álvaro Ibarra Hinojosa',
+      district: 'Distrito 22',
+      email: 'alvaroibarra@hcnl.gob.mx',
+      facebook: 'https://facebook.com/AlvaroIbarraMX',
+      twitter: 'https://twitter.com/AlvaroIbarraMX',
+      instagram: 'https://instagram.com/alvaroibarramx',
+    }],
+    ['23', {
+      fullName: 'Dip. Delfina Beatriz de los Santos Elizondo',
+      district: 'Distrito 23',
+      email: 'beatrizdelossantos@hcnl.gob.mx',
+      facebook: 'https://facebook.com/BettydlSantos',
+      twitter: 'https://twitter.com/BettydlSantos',
+      instagram: 'https://instagram.com/BettydlSantos/',
+    }],
+    ['24', {
+      fullName: 'Dip. Adrián de la Garza Tijerina',
+      district: 'Distrito 24',
+      email: 'adriandelagarza@hcnl.gob.mx',
+      facebook: 'https://facebook.com/AdriandelaGarzaTijerina',
+      twitter: 'https://twitter.com/Adrian_dlGT',
+      instagram: 'https://instagram.com/adriandelagarzatijerina',
+    }],
+    ['25', {
+      fullName: 'Dip. Celia Alonso Rodríguez',
+      district: 'Distrito 25',
+      email: 'celiaalonso@hcnl.gob.mx',
+      facebook: 'https://facebook.com/DiputadaCeliaAlonso',
+      twitter: null,
+      instagram: null,
+    }],
+    ['26', {
+      fullName: 'Dip. Eduardo Leal Buenfil',
+      district: 'Distrito 26',
+      email: 'eduardoleal@hcnl.gob.mx',
+      facebook: 'https://facebook.com/LaloLealB',
+      twitter: 'https://twitter.com/lalolealb',
+      instagram: 'https://instagram.com/lalolealb',
+    }],
+    ['3', {
+      fullName: 'Dip. Myrna Isela Grimaldo Iracheta',
+      district: 'Distrito 3',
+      email: 'myrnagrimaldo@hcnl.gob.mx',
+      facebook: 'https://facebook.com/MyrnaGrimaldoIracheta',
+      twitter: 'https://twitter.com/@myrnagrimaldoi',
+      instagram: 'https://instagram.com/myrnagrimaldoi',
+    }],
+    ['4', {
+      fullName: 'Dip. Luis Donaldo Colosio Riojas',
+      district: 'Distrito 4',
+      email: 'colosioriojas@hcnl.gob.mx',
+      facebook: 'https://facebook.com/colosioriojas',
+      twitter: 'https://twitter.com/colosioriojas',
+      instagram: 'https://instagram.com/colosioriojas',
+    }],
+    ['5', {
+      fullName: 'Dip. Leticia Marlene Benvenutti Villarreal',
+      district: 'Distrito 5',
+      email: 'soybenvenutti@hcnl.gob.mx',
+      facebook: 'https://facebook.com/SoyBenvenuttiNL',
+      twitter: 'https://twitter.com/@SoyBenvenuttiNL',
+      instagram: 'https://instagram.com/soybenvenuttiNL',
+    }],
+    ['6', {
+      fullName: 'Dip. Claudia Gabriela Caballero Chávez',
+      district: 'Distrito 6',
+      email: 'claudiacaballero@hcnl.gob.mx',
+      facebook: 'https://facebook.com/ClaudiaCaballeroMty',
+      twitter: 'https://twitter.com/ClaudiaCabMty',
+      instagram: 'https://instagram.com/claudiacaballeromty',
+    }],
+    ['7', {
+      fullName: 'Dip. Tabita Ortiz Hernández',
+      district: 'Distrito 7',
+      email: 'tabitaortiz@hcnl.gob.mx',
+      facebook: 'https://facebook.com/tabitaortizh',
+      twitter: 'https://twitter.com/TabitaOrtizH',
+      instagram: 'https://instagram.com/tabitaortizh',
+    }],
+    ['8', {
+      fullName: 'Dip. Juan Carlos Ruiz García',
+      district: 'Distrito 8',
+      email: 'juancarlosruiz@hcnl.gob.mx',
+      facebook: 'https://facebook.com/JcRuizMty',
+      twitter: 'https://twitter.com/JcRuizMty',
+      instagram: 'https://instagram.com/jcruizmty',
+    }],
+    ['9', {
+      fullName: 'Dip. Nancy Aracely Olguín Díaz',
+      district: 'Distrito 9',
+      email: 'nancyolguin@hcnl.gob.mx',
+      facebook: 'https://facebook.com/NancyOlguinSN',
+      twitter: 'https://twitter.com/nancyolguinsn',
+      instagram: 'https://instagram.com/nancyolguinsn',
+    }]
+  ]);
+
+  constructor() { }
+
+  getRepresentatives(district: string): Representative {
+    return this.representatives.get(district);
+  }
+}

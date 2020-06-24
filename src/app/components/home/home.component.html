@@ -1,0 +1,134 @@
+<div class="container h-100">
+    <div class="row my-2">
+        <div class="col d-flex justify-content-center">
+            <span class="mx-3 d-flex flex-column justify-content-center">
+                <img src="/assets/image1.png" alt="icon" height="70px">
+            </span>
+            <span class="d-flex flex-column justify-content-center">
+                <h1 class="text-center">Encuentra a tu Diputadx</h1>
+                <h2 class="text-center">Derecho a gobernar</h2>
+            </span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col mx-0 px-0">
+            <ul class="nav nav-tabs nav-fill">
+                <li class="nav-item">
+                    <a [class]="getlinkClass(true)" (click)="changeSearchType(true)">Buscar por sección</a>
+                </li>
+                <li class="nav-item">
+                    <a [class]="getlinkClass(false)" (click)="changeSearchType(false)">Buscar por distrito</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row px-5 py-3 border-0">
+        <div class="col">
+            <form>
+                <div *ngIf="isSearchBySection" class="form-group">
+                    <label for="sectionSelect" class="h4">Selecciona tu sección</label>
+                    <select class="form-control" id="sectionSelect" (change)="selectOption($event.target.value)">
+                        <option value="" disabled selected>Selecciona tu sección</option>
+                        <option *ngFor="let section of sections" [value]="section">Sección {{section}}</option>
+                    </select>
+                </div>
+
+                <div *ngIf="!isSearchBySection" class="form-group">
+                    <label for="sectionSelect" class="h4">Selecciona tu distrito</label>
+                    <select class="form-control" id="sectionSelect" (change)="selectOption($event.target.value)">
+                        <option value="" disabled selected>Selecciona tu distrito</option>
+                        <option value="1">Distrito 1</option>
+                        <option value="2">Distrito 2</option>
+                        <option value="3">Distrito 3</option>
+                        <option value="4">Distrito 4</option>
+                        <option value="5">Distrito 5</option>
+                        <option value="6">Distrito 6</option>
+                        <option value="7">Distrito 7</option>
+                        <option value="8">Distrito 8</option>
+                        <option value="9">Distrito 9</option>
+                        <option value="10">Distrito 10</option>
+                        <option value="11">Distrito 11</option>
+                        <option value="12">Distrito 12</option>
+                        <option value="13">Distrito 13</option>
+                        <option value="14">Distrito 14</option>
+                        <option value="15">Distrito 15</option>
+                        <option value="16">Distrito 16</option>
+                        <option value="17">Distrito 17</option>
+                        <option value="18">Distrito 18</option>
+                        <option value="19">Distrito 19</option>
+                        <option value="20">Distrito 20</option>
+                        <option value="21">Distrito 21</option>
+                        <option value="22">Distrito 22</option>
+                        <option value="23">Distrito 23</option>
+                        <option value="24">Distrito 24</option>
+                        <option value="25">Distrito 25</option>
+                        <option value="26">Distrito 26</option>
+                    </select>
+                </div>
+
+                <div *ngIf="isSearchBySection" class="form-group" [ngClass]="{'element-hidden': representative == undefined}">
+                    <label for="sectionSelect" class="h4">Tu distrito es:</label>
+                    <div class="input-group">
+                        <p class="form-control">
+                            {{ representative?.district }}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="form-group" [ngClass]="{'element-hidden': representative == undefined}">
+                    <label for="sectionSelect" class="h4">Nombre de tu diputada/o:</label>
+                    <p class="form-control">
+                        {{ representative?.fullName }}
+                    </p>
+                </div>
+
+                <div class="form-group" [ngClass]="{'element-hidden': representative == undefined}">
+                    <label for="sectionSelect" class="h4">Datos de contacto:</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">@</div>
+                        </div>
+                        <p class="form-control">
+                            <a href="mailto:{{ representative?.email }}">{{ representative?.email }}</a>
+                        </p>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fab fa-facebook-square"></i></div>
+                        </div>
+                        <div class="form-control">
+                            <p *ngIf='representative?.facebook === null'>-</p>
+                            <a *ngIf='representative?.facebook !== null' [href]="representative?.facebook">{{ representative?.facebook }}</a>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fab fa-twitter-square"></i></div>
+                        </div>
+                        <div class="form-control">
+                            <p *ngIf='representative?.twitter === null'>-</p>
+                            <a *ngIf='representative?.twitter !== null' [href]="representative?.twitter">{{ representative?.twitter }}</a>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fab fa-instagram-square"></i></div>
+                        </div>
+                        <div class="form-control">
+                            <p *ngIf=' representative?.instagram === null'>-</p>
+                            <a *ngIf=' representative?.instagram !== null' [href]="representative?.instagram">{{ representative?.instagram }}</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col d-flex justify-content-between flex-wrap">
+            <span class="flex-fill text-center h3">#ConNosotras</span>
+            <span class="flex-fill text-center h3">#ParidadNL</span>
+            <span class="flex-fill text-center h3">#GobernarSinViolencia</span>
+        </div>
+    </div>
+</div>
